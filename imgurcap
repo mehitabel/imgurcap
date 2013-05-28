@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+
+# capture the file
+screencapture -iS _temp.png
+
+# upload the file
+URL=`imgur upload _temp.png | grep original | awk {'print $2'}`
+
+# delete the local copy
+rm _temp.png
+
+# open in the browser
+open $URL
